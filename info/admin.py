@@ -4,12 +4,12 @@ from .models import (
     SiteSetting,
     Skill,
     Familiarity,
-    Worked,
+    Experience,
     PersonalInfo,
 )
 
 admin.site.register(SiteSetting)
 admin.site.register(Skill)
 admin.site.register(Familiarity)
-admin.site.register(Worked)
+admin.site.register(Experience)
 admin.site.register(PersonalInfo)

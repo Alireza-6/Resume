@@ -54,7 +54,7 @@ class Familiarity(Badge):
         return f'{self.name}'
 
 
-class Worked(models.Model):
+class Experience(models.Model):
     position = models.CharField(max_length=200)
     company = models.CharField(max_length=200)
     city = models.CharField(max_length=50)
