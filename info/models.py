@@ -52,3 +52,11 @@ class Familiarity(Badge):
 
     def __str__(self):
         return f'{self.name}'
+
+
+class Worked(models.Model):
+    position = models.CharField(max_length=200)
+    company = models.CharField(max_length=200)
+    city = models.CharField(max_length=50)
+    start_date = models.CharField(max_length=100)
+    end_date = models.CharField(max_length=100)
