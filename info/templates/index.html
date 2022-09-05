@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Google Fots -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -22,7 +22,7 @@
     <link href="{% static '/css/main.css' %}" rel="stylesheet">
 
 
-    <title>A M Resume</title>
+    <title>{{ personal_info.name }}</title>
 </head>
 <body>
 
@@ -32,14 +32,13 @@
         <div class="ds-header-inner">
             <!-- logo -->
             <a href="index.html" class="ds-logo">
-                <span>J</span>Jason Stroff
+                <span>A</span>{{ personal_info.name }}
             </a>
             <!-- logo -->
             <!-- social -->
             <ul class="ds-social">
-                <li><a href="#" target="_blank"><i class="ri-github-fill"></i></a></li>
-                <li><a href="#" target="_blank"><i class="ri-stack-overflow-line"></i></a></li>
-                <li><a href="#" target="_blank"><i class="ri-linkedin-fill"></i></a></li>
+                <li><a href="{{ personal_info.github }}" target="_blank"><i class="ri-github-fill"></i></a></li>
+                <li><a href="{{ personal_info.linkedin }}" target="_blank"><i class="ri-linkedin-fill"></i></a></li>
             </ul>
             <!-- social -->
         </div>
@@ -52,14 +51,14 @@
         <div class="row">
             <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
                 <figure>
-                    <img src="{% static '/images/profile-image.jpg' %}">
+                    <img src="{{ personal_info.profile_image.url }}">
                 </figure>
             </div>
             <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7 col-xxl-7">
                 <section>
                     <h1>
                         <span>HI THERE</span>
-                        I’m Jason Stroff <br> UI/UX DESIGNER + DEVELOPER based in Florida.
+                        I’m {{ personal_info.name }} <br> {{ personal_info.job_title }}
                     </h1>
                     <ul class="ds-numbervalulist">
                         <li>
@@ -87,11 +86,7 @@
     <div class="container">
         <section>
             <h2 class="ds-heading">About Me</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis interdum ante a porta blandit. Quisque
-                velit tortor, ultricies in quam ut, luctus convallis metus. Nunc vitae felis rutrum, mattis justo quis,
-                bibendum tellus. Integer bibendum eget dolor nec venenatis. Aliquam erat volutpat. Etiam et est vitae
-                turpis accumsan vulputate. Curabitur et vehicula nisl, eu congue dolor. Vivamus nec hendrerit mi Nulla
-                consequat tempor.</p>
+            <p>{{ personal_info.about_me }}</p>
             <div class="ds-button-sec text-center">
                 <a href="#" class="ds-button">Download Resume</a>
             </div>
@@ -105,27 +100,19 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                <h2 class="ds-heading">Core Skills</h2>
+                <h2 class="ds-heading">Skills</h2>
                 <ul class="ds-skills-list">
-                    <li>JavaScript</li>
-                    <li>Node.js</li>
-                    <li>Express.js</li>
-                    <li>MongoDB</li>
-                    <li>Vue.js</li>
-                    <li>React</li>
-                    <li>Sequelize</li>
-                    <li>Github</li>
-                    <li>HTML</li>
+                    {% for skill in skills %}
+                    <li>{{ skill.name }}</li>
+                    {% endfor %}
                 </ul>
             </div>
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                <h2 class="ds-heading">Other Skills</h2>
+                <h2 class="ds-heading">Familiarities</h2>
                 <ul class="ds-skills-list">
-                    <li>Storyblok</li>
-                    <li>PWAs</li>
-                    <li>Responsive Web Design</li>
-                    <li>React</li>
-                    <li>Vuetify</li>
+                    {% for familiarity in familiarities %}
+                    <li>{{ familiarity.name }}</li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
@@ -140,35 +127,12 @@
         <div class="row ds-experience-list">
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                 <section>
-                    <span class="ds-year">2019 - Present</span>
-                    <h3 class="ds-officename">Matrix Media Inc</h3>
-                    <span class="ds-department">Full Stack developer</span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis sem maximus, ornare metus ut,
-                        congue enim. Sed fermentum.</p>
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis sem maximus, ornare metus
-                            ut.
-                        </li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                    </ul>
-                </section>
-            </div>
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                <section>
-                    <span class="ds-year">2018 - 2019</span>
-                    <h3 class="ds-officename">Lexind</h3>
-                    <span class="ds-department">Senior app developer</span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis sem maximus, ornare metus ut,
-                        congue enim. Sed fermentum.</p>
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis sem maximus, ornare metus
-                            ut.
-                        </li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis sem maximus, ornare metus
-                            ut.
-                        </li>
-                    </ul>
+                    {% for experience in experiences %}
+                    <span class="ds-year">{{ experience.start_date }} - {{ experience.end_date }}</span>
+                    <h3 class="ds-officename">{{ experience.company }}</h3>
+                    <span class="ds-department">{{ experience.position }}</span>
+                    <span class="ds-city">{{ experience.city }}</span>
+                    {% endfor %}
                 </section>
             </div>
         </div>
@@ -176,75 +140,15 @@
 </div>
 <!-- Experience -->
 
-<!--  Work -->
-<div class="ds-work-section">
-    <div class="container">
-        <h2 class="ds-heading">Latest works</h2>
-        <div class="ds-work-list-section">
-            <div class="ds-work-list">
-                <div class="row">
-                    <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7 col-xxl-7">
-                        <section>
-                            <h3 class="ds-work-tilte">Tripy mobile app</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis sem maximus, ornare
-                                metus ut, congue enim. Sed fermentum nulla tellus, quis efficitur mauris tristique
-                                efficitur. Aliquam rhoncus sem sed ullamcorper venenatis. Aenean malesuada eu orci non
-                                sodales. </p>
-                            <a href="works-setails.html" class="ds-button">Details</a>
-                        </section>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
-                        <figure><img src="{% static '/images/work-1.jpg' %}"></figure>
-                    </div>
-                </div>
-            </div>
-            <div class="ds-work-list">
-                <div class="row">
-                    <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7 col-xxl-7">
-                        <section>
-                            <h3 class="ds-work-tilte">Hello mobile app</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis sem maximus, ornare
-                                metus ut, congue enim. Sed fermentum nulla tellus, quis efficitur mauris tristique
-                                efficitur. Aliquam rhoncus sem sed ullamcorper venenatis. Aenean malesuada eu orci non
-                                sodales. </p>
-                            <a href="works-setails.html" class="ds-button">Details</a>
-                        </section>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
-                        <figure><img src="{% static '/images/work-2.jpg' %}"></figure>
-                    </div>
-                </div>
-            </div>
-            <div class="ds-work-list">
-                <div class="row">
-                    <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7 col-xxl-7">
-                        <section>
-                            <h3 class="ds-work-tilte">Cute cookies app</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis sem maximus, ornare
-                                metus ut, congue enim. Sed fermentum nulla tellus, quis efficitur mauris tristique
-                                efficitur. Aliquam rhoncus sem sed ullamcorper venenatis. Aenean malesuada eu orci non
-                                sodales. </p>
-                            <a href="works-setails.html" class="ds-button">Details</a>
-                        </section>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 col-xxl-5">
-                        <figure><img src="{% static '/images/work-3.jpg' %}"></figure>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--  Work -->
-
 <!--  footer -->
 <footer class="ds-footer text-center">
     <div class="container">
         <section>
-            <span>Stay in touch</span>
-            <h4>Ready to talk?</h4>
-            <p>Feel free to contact us</p>
-            <a href="mailto:test@test.com" class="ds-button">Lets Talk</a>
+            <ul class="ds-info">
+                <li><span><i class="ri-phone-fill"></i> {{ personal_info.phone }}</span></li>
+                <li><span><i class="ri-mail-fill"></i> {{ personal_info.email }}</span></li>
+                <li><span><i class="ri-map-pin-fill"></i> {{ personal_info.address }}</span></li>
+            </ul>
         </section>
         <span class="ds-copyright">© 2022 {{ site_setting.copyright_text }} All rights reserved.</span>
     </div>
