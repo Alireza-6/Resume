@@ -123,6 +123,7 @@ span.ds-city{ color: #373737; font-weight: 500; font-size: 18px; }
 .ds-copyright a:hover{ color: #F26464; }
 
 .ds-info li{ list-style: none;color:#FFF;}
+.footer-icon{position:relative;top:2px;}
 
 
 /*-------------------------------------------------------------------------------
