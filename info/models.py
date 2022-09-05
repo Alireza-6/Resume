@@ -22,8 +22,8 @@ class PersonalInfo(models.Model):
     email = models.EmailField(max_length=50)
     profile_image = models.ImageField(upload_to=image_upload_path())
     phone = models.CharField(max_length=11)
-    linkedin = models.CharField(max_length=20)
-    github = models.CharField(max_length=20)
+    linkedin = models.CharField(max_length=100)
+    github = models.CharField(max_length=100)
     is_active = models.BooleanField(default=False)
 
     def __str__(self):
