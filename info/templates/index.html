@@ -86,7 +86,7 @@
                 <h2 class="ds-heading">Skills</h2>
                 <ul class="ds-skills-list">
                     {% for skill in skills %}
-                    <li>{{ skill.name }}</li>
+                        <li>{{ skill.name }}</li>
                     {% endfor %}
                 </ul>
             </div>
@@ -94,7 +94,7 @@
                 <h2 class="ds-heading">Familiarities</h2>
                 <ul class="ds-skills-list">
                     {% for familiarity in familiarities %}
-                    <li>{{ familiarity.name }}</li>
+                        <li>{{ familiarity.name }}</li>
                     {% endfor %}
                 </ul>
             </div>
@@ -111,10 +111,10 @@
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
                 <section>
                     {% for experience in experiences %}
-                    <span class="ds-year">{{ experience.start_date }} - {{ experience.end_date }}</span>
-                    <h3 class="ds-officename">{{ experience.company }}</h3>
-                    <span class="ds-department">{{ experience.position }}</span>
-                    <span class="ds-city">{{ experience.city }}</span>
+                        <span class="ds-year">{{ experience.start_date }} - {{ experience.end_date }}</span>
+                        <h3 class="ds-officename">{{ experience.company }}</h3>
+                        <span class="ds-department">{{ experience.position }}</span>
+                        <span class="ds-city">{{ experience.city }}</span>
                     {% endfor %}
                 </section>
             </div>
@@ -128,9 +128,16 @@
     <div class="container">
         <section>
             <ul class="ds-info">
-                <li><span><i class="ri-phone-fill footer-icon"></i> {{ personal_info.phone }}</span></li>
-                <li><span><i class="ri-mail-fill footer-icon"></i> {{ personal_info.email }}</span></li>
-                <li><span><i class="ri-map-pin-fill footer-icon"></i> {{ personal_info.address }}</span></li>
+                <li>
+                    <a href="tel:+989371610116"><i class="ri-phone-fill footer-icon"></i> {{ personal_info.phone }}</a>
+                </li>
+                <li>
+                    <a href="mailto:{{ personal_info.email }}">
+                        <i class="ri-mail-fill footer-icon"></i>
+                        {{ personal_info.email }}
+                    </a>
+                </li>
+                <li><a href=""><i class="ri-map-pin-fill footer-icon"></i> {{ personal_info.address }}</a></li>
             </ul>
         </section>
         <span class="ds-copyright">© 2022 {{ site_setting.copyright_text }} All rights reserved.</span>
