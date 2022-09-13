@@ -23,3 +23,8 @@ def home(request):
         'personal_info': personal_info,
     }
     return render(request, 'index.html', context)
+
+
+def error_404(request, exception):
+    context = {}
+    return render(request, '404.html', context)

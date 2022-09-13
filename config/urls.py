@@ -8,6 +8,8 @@ urlpatterns = [
     path("", include('info.urls')),
 ]
 
+handler404 = 'info.views.error_404'
+
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)  # add static files path to urls
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  # add static media's path to urls
