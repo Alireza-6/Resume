@@ -108,15 +108,15 @@
     <div class="container">
         <h2 class="ds-heading">Work Experience</h2>
         <div class="row ds-experience-list">
-            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                <section>
-                    {% for experience in experiences %}
+            <div class="row text-center justify-content-around">
+                {% for experience in experiences %}
+                    <div class="col-12 col-sm-6">
                         <span class="ds-year">{{ experience.start_date }} - {{ experience.end_date }}</span>
                         <h3 class="ds-officename">{{ experience.company }}</h3>
                         <span class="ds-department">{{ experience.position }}</span>
                         <span class="ds-city">{{ experience.city }}</span>
-                    {% endfor %}
-                </section>
+                    </div>
+                {% endfor %}
             </div>
         </div>
     </div>
